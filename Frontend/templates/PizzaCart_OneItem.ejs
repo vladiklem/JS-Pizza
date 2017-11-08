@@ -1,9 +1,19 @@
-<div>
-    <%= pizza.title %> (<%= size %>)
-    <div>Ціна: <%= pizza[size].price %> грн.</div>
-    <div>
-        <button class="btn btn-danger minus">-</button>
-        <span class="label label-default"><%= quantity %></span>
-        <button class="btn btn-success plus">+</button>
+<div class="cart-segment ng-scope">
+    <img class="img-aside pizza-icon" alt="Піца" src="assets/images/pizza_7.jpg">
+    <p class="order-title bold ng-scope">
+        <span><%= pizza.title %> (<%= size %>)</span>
+    </p>
+    <div class="order-text">
+        <img class="diagonal-image" src="assets/images/size-icon.svg">
+        <span class="diagonal">40</span>
+        <img class="gram-image" src="assets/images/weight.svg">
+        <span class="gram">660</span>
+    </div>
+    <div class="price-box">
+        <span class="price"><%= pizza[size].price %> грн.</span>
+        <button class="minus btn btn-xs btn-danger btn-circle">-</button>
+        <span class="label order-pizza-count" style="color:black;"><%= quantity %></span>
+        <button class="plus btn btn-xs btn-success btn-circle">+</button>
+        <button class="count-clear btn btn-xs btn-default btn-circle">x</button>
     </div>
 </div>
