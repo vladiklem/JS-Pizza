@@ -1,13 +1,12 @@
 .main-pizza{
   margin-right: @RightPanelWidth;
   margin-top: @TopPanelHeight;
-  margin-left: @Indent;
 }
 
 .inner-container {
   max-width: 1000px;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .menu {
@@ -23,14 +22,20 @@
   text-align: center;
 }
 
-.all-pizza-types {
-  width: 100%;
-  margin: auto;
+.all-pizza-types{
+  width:60%;
+  margin: 0 auto;
+  a, a:hover , a:visited{
+    color: @mainColor;
+  }
 }
 
-.all-pizza-types li{
-  display: inline-block;
-  font-size: 20px;
-  margin-right:10px;
+.nav-pills>li.active>a , .nav-pills>li.active>a:hover , .nav-pills>li.active>a:visited{
+  background-color: @mainColor;
 }
 
+@media (max-width: 768px) {
+  .all-pizza-types{
+    width:100%;
+  }
+}

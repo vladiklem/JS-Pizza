@@ -1,8 +1,8 @@
 .top-panel {
   width: 100%;
   height: @TopPanelHeight;
-  padding-right: @RightPanelWidth;
-  padding-left: @Indent+30px;
+  padding-right: @RightPanelWidth+5px;
+  padding-left: @Indent;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,9 +12,9 @@
 .info-menu{
   color:#A1A19D;
   width: 100%;
+  margin-top:10px;
   min-width: 202px;
-  margin-top: 5px;
-  padding-bottom: 5px;
+  padding: 0;
   border-bottom:1px solid #E8E8E8;
 }
 
@@ -39,6 +39,7 @@
 
 .login {
   float: right;
+  margin-bottom: 3px;
 }
 
 .info-menu2 {
@@ -53,9 +54,12 @@
 @media (max-width: 768px) {
   .tel-number {
     width: 50%;
+    font-size: 15px;
+    padding-top: 5px;
   }
 
   .top-panel{
     padding-right: @RightPanelWidth/1.5;
+    height:@TopPanelHeight * 0.75;
   }
 }
