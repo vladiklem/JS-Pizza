@@ -1,0 +1,61 @@
+.top-panel {
+  width: 100%;
+  height: @TopPanelHeight;
+  padding-right: @RightPanelWidth;
+  padding-left: @Indent+30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(2,2,2,0.7);;
+}
+
+.info-menu{
+  color:#A1A19D;
+  width: 100%;
+  min-width: 202px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-bottom:1px solid #E8E8E8;
+}
+
+.tel-number {
+  width: 160px;
+  padding-top: 2px;
+  padding-left: 0;
+  font-size: 20px;
+}
+
+.schedule {
+  width: 200px;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.delivery-text {
+  width: 250px;
+  padding-top: 6px;
+  font-size: 16px;
+}
+
+.login {
+  float: right;
+}
+
+.info-menu2 {
+  margin-top:5px;
+  a, a:hover, a:visited {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .tel-number {
+    width: 50%;
+  }
+
+  .top-panel{
+    padding-right: @RightPanelWidth/1.5;
+  }
+}
