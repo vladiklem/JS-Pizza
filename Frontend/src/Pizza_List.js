@@ -110,6 +110,11 @@ var pizza_info = [
             weight: 370,
             size: 30,
             price: 89
+        },
+        big_size:{
+            weight: 780,
+            size: 40,
+            price: 179
         }
     },
     {
@@ -149,6 +154,11 @@ var pizza_info = [
             weight: 845,
             size: 40,
             price: 399
+        },
+        small_size:{
+            weight: 370,
+            size: 30,
+            price: 89
         }
     },
     {

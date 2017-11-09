@@ -111,6 +111,11 @@ var pizza_info = [
             weight: 370,
             size: 30,
             price: 89
+        },
+        big_size:{
+            weight: 780,
+            size: 40,
+            price: 179
         }
     },
     {
@@ -150,6 +155,11 @@ var pizza_info = [
             weight: 845,
             size: 40,
             price: 399
+        },
+        small_size:{
+            weight: 370,
+            size: 30,
+            price: 89
         }
     },
     {
@@ -184,9 +194,9 @@ module.exports = pizza_info;
 var ejs = require('ejs');
 
 
-exports.PizzaMenu_OneItem = ejs.compile("<%\n\nfunction getIngredientsArray(pizza) {\n    //Отримує вміст піци\n    var content = pizza.content;\n    var result = [];\n\n    //Object.keys повертає масив ключів в об’єкті JavaScript\n\n    Object.keys(content).forEach(function(key){\n\n        //a.concat(b) створює спільний масив із масивів a та b\n        result = result.concat(content[key]);\n    });\n\n    return result;\n}\n\n   %>\n<div class=\"col-sm-6 col-md-4 pizza-card\">\n    <div class=\"thumbnail\">\n        <% if(pizza.is_new) { %>\n        <span class=\"label label-danger new-label\">Нова</span>\n        <% } else if(pizza.is_popular) {%>\n        <span class=\"label label-success popular-label\">Популярна</span>\n        <% } %>\n        <img src=\"<%= pizza.icon%>\">\n        <div class=\"caption\"><span class=\"pizza-title\"><%= pizza.title%></span>\n            <div class=\"type\"><%= pizza.type%></div>\n            <div class=\"description\"><%= getIngredientsArray(pizza).join(\", \") %></div>\n            <div class=\"row\">\n                <div class=\"col-sm-6 small-pizza\">\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/size-icon.svg\">\n                    <span class=\"diagonal\">30</span>\n                    <br>\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/weight.svg\">\n                    <span class=\"gram\">370</span>\n                    <div class=\"price\">\n                        99\n                        <div style=\"font-size:14px;\"> грн.</div>\n                    </div>\n                    <a href=\"#\" class=\"btn btn-warning buy-button-small\" role=\"button\">Купити</a>\n                </div>\n                <div class=\"col-sm-6 big-pizza\">\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/size-icon.svg\">\n                    <span class=\"diagonal\">40</span>\n                    <br>\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/weight.svg\">\n                    <span class=\"gram\">660</span>\n                    <div class=\"price\">\n                        169\n                        <div style=\"font-size:14px;\"> грн.</div>\n                    </div>\n                    <a href=\"#\" class=\"btn btn-warning buy-button-big\" role=\"button\">Купити</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+exports.PizzaMenu_OneItem = ejs.compile("<%\n\nfunction getIngredientsArray(pizza) {\n    //Отримує вміст піци\n    var content = pizza.content;\n    var result = [];\n\n    //Object.keys повертає масив ключів в об’єкті JavaScript\n\n    Object.keys(content).forEach(function(key){\n\n        //a.concat(b) створює спільний масив із масивів a та b\n        result = result.concat(content[key]);\n    });\n\n    return result;\n}\n\n%>\n<div class=\"col-sm-6 col-md-4 pizza-card\">\n    <div class=\"thumbnail\">\n        <% if(pizza.is_new) { %>\n        <span class=\"label label-danger new-label\">Нова</span>\n        <% } else if(pizza.is_popular) {%>\n        <span class=\"label label-success popular-label\">Популярна</span>\n        <% } %>\n        <img src=\"<%= pizza.icon%>\">\n        <div class=\"caption\"><span class=\"pizza-title\"><%= pizza.title%></span>\n            <div class=\"type\"><%= pizza.type%></div>\n            <div class=\"description\"><%= getIngredientsArray(pizza).join(\", \") %></div>\n            <div class=\"row\">\n                <div class=\"col-sm-6 small-pizza\">\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/size-icon.svg\">\n                    <span class=\"diagonal\"><%= pizza.small_size.size%></span>\n                    <br>\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/weight.svg\">\n                    <span class=\"gram\"><%= pizza.small_size.weight%></span>\n                    <div class=\"price\">\n                        <%= pizza.small_size.price%>\n                        <div style=\"font-size:14px;\"> грн.</div>\n                    </div>\n                    <button class=\"btn btn-warning buy-small\" role=\"button\">Купити</button>\n                </div>\n                <div class=\"col-sm-6 big-pizza\">\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/size-icon.svg\">\n                    <span class=\"diagonal\"><%= pizza.big_size.size%></span>\n                    <br>\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/weight.svg\">\n                    <span class=\"gram\"><%= pizza.big_size.weight%></span>\n                    <div class=\"price\">\n                        <%= pizza.big_size.price%>\n                        <div style=\"font-size:14px;\"> грн.</div>\n                    </div>\n                    <button class=\"btn btn-warning buy-big\" role=\"button\">Купити</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
-exports.PizzaCart_OneItem = ejs.compile("<div>\n    <%= pizza.title %> (<%= size %>)\n    <div>Ціна: <%= pizza[size].price %> грн.</div>\n    <div>\n        <button class=\"btn btn-danger minus\">-</button>\n        <span class=\"label label-default\"><%= quantity %></span>\n        <button class=\"btn btn-success plus\">+</button>\n    </div>\n</div>");
+exports.PizzaCart_OneItem = ejs.compile("<div class=\"cart-segment ng-scope\">\n    <img class=\"img-aside pizza-icon\" alt=\"Піца\" src=\"assets/images/pizza_7.jpg\">\n    <p class=\"order-title bold ng-scope\">\n        <span><%= pizza.title %> (<%= size %>)</span>\n    </p>\n    <div class=\"order-text\">\n        <img class=\"diagonal-image\" src=\"assets/images/size-icon.svg\">\n        <span class=\"diagonal\">40</span>\n        <img class=\"gram-image\" src=\"assets/images/weight.svg\">\n        <span class=\"gram\">660</span>\n    </div>\n    <div class=\"price-box\">\n        <span class=\"price\"><%= pizza[size].price %> грн.</span>\n        <button class=\"minus btn btn-xs btn-danger btn-circle\">-</button>\n        <span class=\"label order-pizza-count\" style=\"color:black;\"><%= quantity %></span>\n        <button class=\"plus btn btn-xs btn-success btn-circle\">+</button>\n        <button class=\"count-clear btn btn-xs btn-default btn-circle\">x</button>\n    </div>\n</div>");
 
 },{"ejs":7}],3:[function(require,module,exports){
 /**
@@ -210,6 +220,18 @@ $(function(){
  */
 var Templates = require('../Templates');
 
+// var basil	=	require('basil.js');
+//
+//     basil	=	new	basil();
+//
+//     exports.get =	function(key)	{
+//         return	basil.get(key);
+//     };
+//
+//     exports.set =	function(key,	value)	{
+//         return	basil.set(key,	value);
+//     };
+
 //Перелік розмірів піци
 var PizzaSize = {
     Big: "big_size",
@@ -217,6 +239,7 @@ var PizzaSize = {
 };
 
 //Змінна в якій зберігаються перелік піц в кошику
+//var Storage	=	require('../storage/storage');
 var Cart = [];
 
 //HTML едемент куди будуть додаватися піци
@@ -275,6 +298,16 @@ function updateCart() {
             cart_item.quantity += 1;
 
             //Оновлюємо відображення
+            updateCart();
+        });
+
+        $node.find(".minus").click(function(){
+            if (cart_item.quantity == 1){
+
+            }else{
+                cart_item.quantity -= 1;
+            }
+
             updateCart();
         });
 
