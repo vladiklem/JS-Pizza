@@ -15,15 +15,31 @@ var Cart = [];
 //HTML едемент куди будуть додаватися піци
 var $cart = $("#cart");
 
+$(".top-clear").click(function(){
+    Cart = [];
+    updateCart();
+});
+
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
 
-    //Приклад реалізації, можна робити будь-яким іншим способом
-    Cart.push({
-        pizza: pizza,
-        size: size,
-        quantity: 1
-    });
+    var x = -1;
+    for(var i=0;i<Cart.length;i++){
+        if(pizza.id === Cart[i].pizza.id && size === Cart[i].size){
+            x = i;
+        }
+    }
+
+    if(x == -1){
+        Cart.push({
+            pizza: pizza,
+            size: size,
+            quantity: 1
+        });
+    }else{
+        Cart[x].quantity += 1;
+        updateCart();
+    }
 
     //Оновити вміст кошика на сторінці
     updateCart();
@@ -31,8 +47,14 @@ function addToCart(pizza, size) {
 
 function removeFromCart(cart_item) {
     //Видалити піцу з кошика
-    //TODO: треба зробити
-
+    var id = cart_item.pizza.id;
+    var size = cart_item.size;
+    for(var i=0;i<Cart.length;i++){
+        if(id === Cart[i].pizza.id && size === Cart[i].size){
+            var n = i;
+        }
+    }
+    Cart.splice(n,1);
     //Після видалення оновити відображення
     updateCart();
 }
@@ -63,11 +85,25 @@ function updateCart() {
 
         var $node = $(html_code);
 
+        $node.find(".count-clear").click(function(){
+            removeFromCart(cart_item);
+        });
+
         $node.find(".plus").click(function(){
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;
 
             //Оновлюємо відображення
+            updateCart();
+        });
+
+        $node.find(".minus").click(function(){
+            if(cart_item.quantity == 1){
+                removeFromCart(cart_item);
+            }else{
+                cart_item.quantity -= 1;
+            }
+
             updateCart();
         });
 

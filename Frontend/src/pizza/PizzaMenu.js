@@ -7,6 +7,15 @@ var Pizza_List = require('../Pizza_List');
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
+var $menu = $(".all-pizza-types");
+
+$menu.find("#all").click(function(){
+    showPizzaList(Pizza_List)
+});
+
+$menu.find("#meat").click(function(){
+    filterPizza("М’ясна піца");
+});
 
 function showPizzaList(list) {
     //Очищаємо старі піци в кошику
@@ -38,11 +47,13 @@ function filterPizza(filter) {
     Pizza_List.forEach(function(pizza){
         //Якщо піка відповідає фільтру
         //pizza_shown.push(pizza);
-
-        //TODO: зробити фільтри
+        if(pizza.type === filter){
+            pizza_shown.join(pizza);
+        }
     });
 
     //Показати відфільтровані піци
+    console.log(pizza_shown);
     showPizzaList(pizza_shown);
 }
 

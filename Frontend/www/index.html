@@ -25,12 +25,12 @@
             </h2>
         </div>
         <ul class="nav nav-pills all-pizza-types">
-            <li class="all active"> <a href="">Усі</a> </li>
-            <li class="meat"><a href="">З м'ясом</a></li>
-            <li class="pineapple"><a href="">З ананасами</a></li>
-            <li class="mashrooms"><a href="">З грибами</a></li>
-            <li class="seafood"><a href="">З морепродуктами</a></li>
-            <li class="vega"><a href="">Вега</a></li>
+            <li class="active" id="all"> <a href="">Усі</a> </li>
+            <li id="meat"><a href="">З м'ясом</a></li>
+            <li id="pineapple"><a href="">З ананасами</a></li>
+            <li id="mashrooms"><a href="">З грибами</a></li>
+            <li id="seafood"><a href="">З морепродуктами</a></li>
+            <li id="vega"><a href="">Вега</a></li>
         </ul>
     </div>
     <div class="row" id="pizza_list">
@@ -58,7 +58,7 @@
                 Замовлення
                 <div class="badge oval pizza-count">0</div>
             </div>
-            <button class="top-clear col-xs-6">Очистити замовлення</button>
+            <span class="top-clear col-xs-6">Очистити замовлення</span>
         </div>
     </div>
     <div class="main-part">
@@ -71,7 +71,9 @@
     </div>
     <div class="bottom-part">
         <div class="row sum"></div>
+        <div class ="do-order-btn">
         <span class="btn btn-warning order-btn">Замовити</span>
+        </div>
     </div>
 
 <!-- jQuery JavaScript -->
