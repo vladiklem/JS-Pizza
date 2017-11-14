@@ -251,6 +251,23 @@ $(".top-clear").click(function(){
     updateCart();
 });
 
+function CountSum(){
+
+    var s = 0;
+
+    for(var i = 0;i<Cart.length;i++){
+
+        if(Cart[i].size == "small_size"){
+            s += (Cart[i].pizza.small_size.price * Cart[i].quantity);
+        }else{
+            s += (Cart[i].pizza.big_size.price * Cart[i].quantity);
+        }
+    }
+    var sum = s.toString()
+    $(".sum").text("Сума замовлення: " + sum + " грн");
+
+}
+
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
 
@@ -342,7 +359,7 @@ function updateCart() {
     }
 
     Cart.forEach(showOnePizzaInCart);
-
+    CountSum();
 }
 
 exports.removeFromCart = removeFromCart;
@@ -366,10 +383,62 @@ var $menu = $(".all-pizza-types");
 
 $menu.find("#all").click(function(){
     showPizzaList(Pizza_List)
+    $menu.find("#all").addClass("active");
+    $menu.find("#meat").removeClass("active");
+    $menu.find("#pineapple").removeClass("active");
+    $menu.find("#mushroom").removeClass("active");
+    $menu.find("#ocean").removeClass("active");
+    $menu.find("#tomato").removeClass("active");
 });
 
 $menu.find("#meat").click(function(){
-    filterPizza("М’ясна піца");
+    $menu.find("#all").removeClass("active");
+    $menu.find("#meat").addClass("active");
+    $menu.find("#pineapple").removeClass("active");
+    $menu.find("#mushroom").removeClass("active");
+    $menu.find("#ocean").removeClass("active");
+    $menu.find("#tomato").removeClass("active");
+    filterPizza("meat");
+});
+
+$menu.find("#pineapple").click(function(){
+    $menu.find("#all").removeClass("active");
+    $menu.find("#meat").removeClass("active");
+    $menu.find("#pineapple").addClass("active");
+    $menu.find("#mushroom").removeClass("active");
+    $menu.find("#ocean").removeClass("active");
+    $menu.find("#tomato").removeClass("active");
+    filterPizza("pineapple");
+});
+
+$menu.find("#mushroom").click(function(){
+    $menu.find("#all").removeClass("active");
+    $menu.find("#meat").removeClass("active");
+    $menu.find("#pineapple").removeClass("active");
+    $menu.find("#mushroom").addClass("active");
+    $menu.find("#ocean").removeClass("active");
+    $menu.find("#tomato").removeClass("active");
+    filterPizza("mushroom");
+});
+
+$menu.find("#ocean").click(function(){
+    $menu.find("#all").removeClass("active");
+    $menu.find("#meat").removeClass("active");
+    $menu.find("#pineapple").removeClass("active");
+    $menu.find("#mushroom").removeClass("active");
+    $menu.find("#ocean").addClass("active");
+    $menu.find("#tomato").removeClass("active");
+    filterPizza("ocean");
+});
+
+$menu.find("#tomato").click(function(){
+    $menu.find("#all").removeClass("active");
+    $menu.find("#meat").removeClass("active");
+    $menu.find("#pineapple").removeClass("active");
+    $menu.find("#mushroom").removeClass("active");
+    $menu.find("#ocean").removeClass("active");
+    $menu.find("#tomato").addClass("active");
+    filterPizza("tomato");
 });
 
 function showPizzaList(list) {
@@ -402,13 +471,18 @@ function filterPizza(filter) {
     Pizza_List.forEach(function(pizza){
         //Якщо піка відповідає фільтру
         //pizza_shown.push(pizza);
-        if(pizza.type === filter){
-            pizza_shown.join(pizza);
-        }
+        var content = pizza.content;
+
+        Object.keys(content).forEach(function(key){
+            console.log(key);
+            if (key == filter){
+                pizza_shown.push(pizza);
+            }
+        });
+
     });
 
     //Показати відфільтровані піци
-    console.log(pizza_shown);
     showPizzaList(pizza_shown);
 }
 

@@ -20,6 +20,23 @@ $(".top-clear").click(function(){
     updateCart();
 });
 
+function CountSum(){
+
+    var s = 0;
+
+    for(var i = 0;i<Cart.length;i++){
+
+        if(Cart[i].size == "small_size"){
+            s += (Cart[i].pizza.small_size.price * Cart[i].quantity);
+        }else{
+            s += (Cart[i].pizza.big_size.price * Cart[i].quantity);
+        }
+    }
+    var sum = s.toString()
+    $(".sum").text("Сума замовлення: " + sum + " грн");
+
+}
+
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
 
@@ -111,7 +128,7 @@ function updateCart() {
     }
 
     Cart.forEach(showOnePizzaInCart);
-
+    CountSum();
 }
 
 exports.removeFromCart = removeFromCart;
