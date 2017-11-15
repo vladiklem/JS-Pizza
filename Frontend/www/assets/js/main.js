@@ -1,16 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var basil	=	require('basil.js');
-
-    basil	=	new	basil();
-
-    exports.get =	function(key)	{
-        return	basil.get(key);
-    };
-
-    exports.set =	function(key,	value)	{
-        return	basil.set(key,	value);
-    };
-},{"basil.js":7}],2:[function(require,module,exports){
 /**
  * Created by diana on 12.01.16.
  */
@@ -198,7 +186,7 @@ var pizza_info = [
 ];
 
 module.exports = pizza_info;
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
  */
@@ -208,9 +196,9 @@ var ejs = require('ejs');
 
 exports.PizzaMenu_OneItem = ejs.compile("<%\n\nfunction getIngredientsArray(pizza) {\n    //Отримує вміст піци\n    var content = pizza.content;\n    var result = [];\n\n    //Object.keys повертає масив ключів в об’єкті JavaScript\n\n    Object.keys(content).forEach(function(key){\n\n        //a.concat(b) створює спільний масив із масивів a та b\n        result = result.concat(content[key]);\n    });\n\n    return result;\n}\n\n%>\n<div class=\"col-sm-6 col-md-4 pizza-card\">\n    <div class=\"thumbnail\">\n        <% if(pizza.is_new) { %>\n        <span class=\"label label-danger new-label\">Нова</span>\n        <% } else if(pizza.is_popular) {%>\n        <span class=\"label label-success popular-label\">Популярна</span>\n        <% } %>\n        <img src=\"<%= pizza.icon%>\">\n        <div class=\"caption\"><span class=\"pizza-title\"><%= pizza.title%></span>\n            <div class=\"type\"><%= pizza.type%></div>\n            <div class=\"description\"><%= getIngredientsArray(pizza).join(\", \") %></div>\n            <div class=\"row\">\n                <div class=\"col-sm-6 small-pizza\">\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/size-icon.svg\">\n                    <span class=\"diagonal\"><%= pizza.small_size.size%></span>\n                    <br>\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/weight.svg\">\n                    <span class=\"gram\"><%= pizza.small_size.weight%></span>\n                    <div class=\"price\">\n                        <%= pizza.small_size.price%>\n                        <div style=\"font-size:14px;\"> грн.</div>\n                    </div>\n                    <button class=\"btn btn-warning buy-small\" role=\"button\">Купити</button>\n                </div>\n                <div class=\"col-sm-6 big-pizza\">\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/size-icon.svg\">\n                    <span class=\"diagonal\"><%= pizza.big_size.size%></span>\n                    <br>\n                    <img class=\"ui right spaced avatar image\" src=\"assets/images/weight.svg\">\n                    <span class=\"gram\"><%= pizza.big_size.weight%></span>\n                    <div class=\"price\">\n                        <%= pizza.big_size.price%>\n                        <div style=\"font-size:14px;\"> грн.</div>\n                    </div>\n                    <button class=\"btn btn-warning buy-big\" role=\"button\">Купити</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
-exports.PizzaCart_OneItem = ejs.compile("<div class=\"cart-segment ng-scope\">\n    <img class=\"img-aside pizza-icon\" alt=\"Піца\" src=\"assets/images/pizza_7.jpg\">\n    <p class=\"order-title bold ng-scope\">\n        <span><%= pizza.title %> ( <% if(size == \"small_size\") { %>Мала<% } else {%>Велика<% } %>)</span>\n    </p>\n    <div class=\"order-text\">\n        <img class=\"diagonal-image\" src=\"assets/images/size-icon.svg\">\n        <span class=\"diagonal\">40</span>\n        <img class=\"gram-image\" src=\"assets/images/weight.svg\">\n        <span class=\"gram\">660</span>\n    </div>\n    <div class=\"price-box\">\n        <span class=\"price\"><%= pizza[size].price*quantity %> грн.</span>\n        <button class=\"minus btn btn-xs btn-danger btn-circle\">-</button>\n        <span class=\"label order-pizza-count\" style=\"color:black;\"><%= quantity %></span>\n        <button class=\"plus btn btn-xs btn-success btn-circle\">+</button>\n        <button class=\"count-clear btn btn-xs btn-default btn-circle\">x</button>\n    </div>\n</div>");
+exports.PizzaCart_OneItem = ejs.compile("<div class=\"cart-segment ng-scope\">\n    <img class=\"img-aside pizza-icon\" alt=\"Піца\" src=\"<%=pizza.icon%>\"\n    >\n    <p class=\"order-title bold ng-scope\">\n        <span><%= pizza.title %> ( <% if(size == \"small_size\") { %>Мала<% } else {%>Велика<% } %>)</span>\n    </p>\n    <div class=\"order-text\">\n        <img class=\"diagonal-image\" src=\"assets/images/size-icon.svg\">\n        <span class=\"diagonal\">40</span>\n        <img class=\"gram-image\" src=\"assets/images/weight.svg\">\n        <span class=\"gram\">660</span>\n    </div>\n    <div class=\"price-box\">\n        <span class=\"price\"><%= pizza[size].price*quantity %> грн.</span>\n        <button class=\"minus btn btn-xs btn-danger btn-circle\">-</button>\n        <span class=\"label order-pizza-count\" style=\"color:black;\"><%= quantity %></span>\n        <button class=\"plus btn btn-xs btn-success btn-circle\">+</button>\n        <button class=\"count-clear btn btn-xs btn-default btn-circle\">x</button>\n    </div>\n</div>");
 
-},{"ejs":9}],4:[function(require,module,exports){
+},{"ejs":9}],3:[function(require,module,exports){
 /**
  * Created by chaika on 25.01.16.
  */
@@ -220,7 +208,7 @@ $(function(){
     var PizzaMenu = require('./pizza/PizzaMenu');
     var PizzaCart = require('./pizza/PizzaCart');
     var Pizza_List = require('./Pizza_List');
-    var Storage = require('./LocalStorage');
+    var Storage = require('./pizza/LocalStorage');
 
     PizzaCart.initialiseCart();
     PizzaMenu.initialiseMenu();
@@ -228,11 +216,24 @@ $(function(){
 
 });
 
-},{"./LocalStorage":1,"./Pizza_List":2,"./pizza/PizzaCart":5,"./pizza/PizzaMenu":6}],5:[function(require,module,exports){
+},{"./Pizza_List":1,"./pizza/LocalStorage":4,"./pizza/PizzaCart":5,"./pizza/PizzaMenu":6}],4:[function(require,module,exports){
+var basil	=	require('basil.js');
+
+    basil	=	new	basil();
+
+    exports.get =	function(key)	{
+        return	basil.get(key);
+    };
+
+    exports.set =	function(key,	value)	{
+        return	basil.set(key,	value);
+    };
+},{"basil.js":7}],5:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
  */
 var Templates = require('../Templates');
+var Storage = require('./LocalStorage');
 
 //Перелік розмірів піци
 var PizzaSize = {
@@ -242,6 +243,7 @@ var PizzaSize = {
 
 //Змінна в якій зберігаються перелік піц в кошику
 var Cart = [];
+GetStorage();
 
 //HTML едемент куди будуть додаватися піци
 var $cart = $("#cart");
@@ -265,6 +267,14 @@ function CountSum(){
     }
     var sum = s.toString()
     $(".sum").text("Сума замовлення: " + sum + " грн");
+
+}
+
+function CountPizza(){
+
+    var s = Cart.length;
+    var sum = s.toString()
+    $(".pizza-count").text(sum);
 
 }
 
@@ -359,7 +369,19 @@ function updateCart() {
     }
 
     Cart.forEach(showOnePizzaInCart);
+    SetStorage();
     CountSum();
+    CountPizza();
+}
+
+function SetStorage() {
+    Storage.set('cart' , Cart);
+}
+
+function GetStorage() {
+    if(Storage.get('cart')!== null){
+        Cart = Storage.get('cart');
+    }
 }
 
 exports.removeFromCart = removeFromCart;
@@ -369,7 +391,7 @@ exports.getPizzaInCart = getPizzaInCart;
 exports.initialiseCart = initialiseCart;
 
 exports.PizzaSize = PizzaSize;
-},{"../Templates":3}],6:[function(require,module,exports){
+},{"../Templates":2,"./LocalStorage":4}],6:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
  */
@@ -383,6 +405,7 @@ var $menu = $(".all-pizza-types");
 
 $menu.find("#all").click(function(){
     showPizzaList(Pizza_List)
+    $(".pizza-filter-count").text(8);
     $menu.find("#all").addClass("active");
     $menu.find("#meat").removeClass("active");
     $menu.find("#pineapple").removeClass("active");
@@ -474,7 +497,6 @@ function filterPizza(filter) {
         var content = pizza.content;
 
         Object.keys(content).forEach(function(key){
-            console.log(key);
             if (key == filter){
                 pizza_shown.push(pizza);
             }
@@ -483,6 +505,7 @@ function filterPizza(filter) {
     });
 
     //Показати відфільтровані піци
+    $(".pizza-filter-count").text(pizza_shown.length);
     showPizzaList(pizza_shown);
 }
 
@@ -493,7 +516,7 @@ function initialiseMenu() {
 
 exports.filterPizza = filterPizza;
 exports.initialiseMenu = initialiseMenu;
-},{"../Pizza_List":2,"../Templates":3,"./PizzaCart":5}],7:[function(require,module,exports){
+},{"../Pizza_List":1,"../Templates":2,"./PizzaCart":5}],7:[function(require,module,exports){
 (function () {
 	// Basil
 	var Basil = function (options) {
@@ -2412,4 +2435,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[4]);
+},{}]},{},[3]);

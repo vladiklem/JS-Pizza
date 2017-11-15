@@ -51,6 +51,40 @@
   }
 }
 
+.site-icon {
+  position: fixed;
+  top: 0;
+  left:10px;
+  background: #ea862e;
+  z-index: 99;
+  width: 100px;
+  height: 90px;
+  font-size: 19px;
+  padding: 10px;
+  padding-top: 15px;
+  text-align:center;
+  text-transform: uppercase;
+}
+
+.title-1{
+  color: #ffffff;
+}
+
+.title-2{
+  font-size: 25px;
+  color: #fff;
+}
+
+.top-discount {
+  position: fixed;
+  background: #ea862e;
+  width: 100px;
+  height:10px;
+  top: 90px;
+  left:10px;
+  transform: scaleY(-1);
+}
+
 @media (max-width: 768px) {
   .tel-number {
     width: 50%;
@@ -62,4 +96,9 @@
     padding-right: @RightPanelWidth/1.5;
     height:@TopPanelHeight * 0.75;
   }
+
+  .info-menu{
+    padding-right:50px;
+  }
+
 }

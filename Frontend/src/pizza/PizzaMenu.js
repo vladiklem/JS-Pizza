@@ -11,6 +11,7 @@ var $menu = $(".all-pizza-types");
 
 $menu.find("#all").click(function(){
     showPizzaList(Pizza_List)
+    $(".pizza-filter-count").text(8);
     $menu.find("#all").addClass("active");
     $menu.find("#meat").removeClass("active");
     $menu.find("#pineapple").removeClass("active");
@@ -102,7 +103,6 @@ function filterPizza(filter) {
         var content = pizza.content;
 
         Object.keys(content).forEach(function(key){
-            console.log(key);
             if (key == filter){
                 pizza_shown.push(pizza);
             }
@@ -111,6 +111,7 @@ function filterPizza(filter) {
     });
 
     //Показати відфільтровані піци
+    $(".pizza-filter-count").text(pizza_shown.length);
     showPizzaList(pizza_shown);
 }
 

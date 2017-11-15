@@ -2,6 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pizza - round the clock</title>
 
     <!-- Bootsrap CSS -->
@@ -21,7 +22,7 @@
         <div class="page-title">
             <h2>
                 <span class="title">Усі піци</span>
-                <span class="badge orange pizza-count">0</span>
+                <span class="badge orange pizza-filter-count">8</span>
             </h2>
         </div>
         <ul class="nav nav-pills all-pizza-types">
@@ -51,6 +52,24 @@
     </div>
 </div>
 
+<div class="site-icon">
+    <div class="discount-before top-discount">
+    </div>
+    <a class="pizza-logo" style="text-decoration:none" href="/index.html">
+        <div id="pizza-title2" class="title-1">
+            Pizza
+        </div>
+        <div class="title-2">
+            KMA
+        </div>
+    </a>
+</div>
+
+<footer class="footer">
+    <p>Pizza.22 - практичний проект в межах курсу JavaScript в Києво-Могилянській Академії</p>
+    <p>Доставка піци не здійснюється</p>
+</footer>
+
 <div class = "right-panel">
     <div class="top-part">
         <div class="row order-info">
@@ -72,9 +91,10 @@
     <div class="bottom-part">
         <div class="sum">Сума замовлення: 0 грн</div>
         <div class ="do-order-btn">
-        <span class="btn btn-warning order-btn">Замовити</span>
+        <a href="order.html" class="btn btn-warning order-btn">Замовити</a>
         </div>
     </div>
+</div>
 
 <!-- jQuery JavaScript -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>

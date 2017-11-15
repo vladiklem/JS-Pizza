@@ -2,6 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order pizza - round the clock</title>
 
     <!-- Bootsrap CSS -->
@@ -16,5 +17,105 @@
 </head>
 <body>
 
+<div class="main-pizza">
+    <div class="main-container  container-fluid">
+        <div class="left-order-panel">
+            <div class="contact-form">
+                <div class="form">
+                    <h3>1. Контактні дані</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-horizontal">
+                            <div class="form-group name-form">
+                                    <label class="col-sm-2 control-label">Ім’я</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" id="inputName" placeholder="Ім’я Прізвище">
+                                    </div>
+                                    <span class="name-help-block" style="display:none">Введіть тільки власне ім’я, без цифр</span>
+                            </div>
+                            <div class="form-group phone-form">
+                                <label class="col-sm-2 control-label">Телефон</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="inputPhone" placeholder="Номер телефону">
+                                </div>
+                                <span class="phone-help-block" style="display:none">Введіть номер телефону в форматі +380 або починаючи з 0</span>
+                            </div>
+                            <div class="form-group address-form">
+                                <label class="col-sm-2 control-label">Адресса</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="inputAdress" placeholder="Адресса доставки">
+                                </div>
+                                <span class="adress-help-block" style="display:none">Введіть свою адрессу</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 order-summary">
+                        <div class="delivery-info">
+                            <h4>Інформація про замовлення</h4>
+                            <p class="order-summery-time">
+                                <b>Приблизний час доставки:</b> невідомий
+                            </p>
+                            <p class="order-summery-adress">
+                                <b>Адреса доставки:</b> невідома
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="top-panel">
+    <div class="row info-menu">
+        <div class="col-lg-3 visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block tel-number">(044) 222 5 222</div>
+        <div class="col-lg-3 visible-lg-inline-block visible-md-inline-block schedule">24 години/ 7 днів на тиждень</div>
+        <div class="col-lg-3 visible-lg-inline-block delivery-text">Безкоштовна доставка піци</div>
+        <button type="button" class="btn btn-warning login">Ввійти</button>
+    </div>
+    <div class="info-menu2">
+        <a class="hidden-xs" href="index.html">Піца</a>
+    </div>
+</div>
+
+<div class="site-icon">
+    <div class="discount-before top-discount">
+    </div>
+    <a class="pizza-logo" style="text-decoration:none" href="/index.html">
+        <div id="pizza-title2" class="title-1">
+            Pizza
+        </div>
+        <div class="title-2">
+            KMA
+        </div>
+    </a>
+</div>
+
+<div class = "right-panel">
+    <div class="top-part">
+        <div class="row order-info">
+            <div class="col-xs-6 order">
+                Замовлення
+                <div class="badge oval pizza-count">0</div>
+            </div>
+            <span class="top-clear col-xs-6">Очистити замовлення</span>
+        </div>
+    </div>
+    <div class="main-part">
+        <!--<div class="trap">Пусто в холодильнику?-->
+        <!--Замовте піцу!</div>-->
+        <!--</div>-->
+        <div id="cart">
+
+        </div>
+    </div>
+    <div class="bottom-part">
+        <div class="sum">Сума замовлення: 0 грн</div>
+        <div class ="do-order-btn">
+            <span class="btn btn-warning edit-order">Редагувати замовлення</span>
+        </div>
+    </div>
+</div>
 </body>
 </html>
