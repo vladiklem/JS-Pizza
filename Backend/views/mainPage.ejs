@@ -1,7 +1,66 @@
 <% include common/header.ejs %>
 
-<div class="">
-    Main Page Content
+<div class="main-pizza">
+    <div class="inner-container">
+        <div class="menu">
+            <div class="page-title">
+                <h2>
+                    <span class="title">Усі піци</span>
+                    <span class="badge orange pizza-filter-count">8</span>
+                </h2>
+            </div>
+            <ul class="nav nav-pills all-pizza-types">
+                <li class="active" id="all"> <a href="#">Усі</a> </li>
+                <li id="meat"><a href="#">З м'ясом</a></li>
+                <li id="pineapple"><a href="#">З ананасами</a></li>
+                <li id="mushroom"><a href="#">З грибами</a></li>
+                <li id="ocean"><a href="#">З морепродуктами</a></li>
+                <li id="tomato"><a href="#">Вега</a></li>
+            </ul>
+        </div>
+        <div class="row" id="pizza_list">
+
+        </div>
+    </div>
+</div>
+
+<div class="site-icon">
+    <div class="discount-before top-discount">
+    </div>
+    <a class="pizza-logo" style="text-decoration:none" href="/index.html">
+        <div id="pizza-title2" class="title-1">
+            Pizza
+        </div>
+        <div class="title-2">
+            KMA
+        </div>
+    </a>
+</div>
+
+<div class = "right-panel">
+    <div class="top-part">
+        <div class="row order-info">
+            <div class="col-xs-6 order">
+                Замовлення
+                <div class="badge oval pizza-count">0</div>
+            </div>
+            <span class="top-clear col-xs-6">Очистити замовлення</span>
+        </div>
+    </div>
+    <div class="main-part">
+        <!--<div class="trap">Пусто в холодильнику?-->
+        <!--Замовте піцу!</div>-->
+        <!--</div>-->
+        <div id="cart">
+
+        </div>
+    </div>
+    <div class="bottom-part">
+        <div class="sum">Сума замовлення: 0 грн</div>
+        <div class ="do-order-btn">
+            <a href="order.html" class="btn btn-warning order-btn">Замовити</a>
+        </div>
+    </div>
 </div>
 
 <% include common/footer.ejs %>

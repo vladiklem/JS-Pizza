@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Order pizza - round the clock</title>
-
-    <!-- Bootsrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-    <!-- LESS основний файл -->
-    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
-    <!-- LESS JavaScript компілятор -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-
-
-</head>
-<body>
+<% include common/header.ejs %>
 
 <div class="main-pizza">
     <div class="main-container  container-fluid">
@@ -28,11 +11,11 @@
                     <div class="col-md-7">
                         <div class="form-horizontal">
                             <div class="form-group name-form">
-                                    <label class="col-sm-2 control-label">Ім’я</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" id="inputName" placeholder="Ім’я Прізвище">
-                                    </div>
-                                    <span class="name-help-block" style="display:none">Введіть тільки власне ім’я, без цифр</span>
+                                <label class="col-sm-2 control-label">Ім’я</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="inputName" placeholder="Ім’я Прізвище">
+                                </div>
+                                <span class="name-help-block" style="display:none">Введіть тільки власне ім’я, без цифр</span>
                             </div>
                             <div class="form-group phone-form">
                                 <label class="col-sm-2 control-label">Телефон</label>
@@ -76,22 +59,11 @@
     </div>
 </div>
 
-<div class="top-panel">
-    <div class="row info-menu">
-        <div class="col-lg-3 visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block tel-number">(044) 222 5 222</div>
-        <div class="col-lg-3 visible-lg-inline-block visible-md-inline-block schedule">24 години/ 7 днів на тиждень</div>
-        <div class="col-lg-3 visible-lg-inline-block delivery-text">Безкоштовна доставка піци</div>
-        <button type="button" class="btn btn-warning login">Ввійти</button>
-    </div>
-    <div class="info-menu2">
-        <a class="hidden-xs" href="index.html">Піца</a>
-    </div>
-</div>
 
 <div class="site-icon">
     <div class="discount-before top-discount">
     </div>
-    <a class="pizza-logo" style="text-decoration:none" href="/index.html">
+    <a class="pizza-logo" style="text-decoration:none" href="/">
         <div id="pizza-title2" class="title-1">
             Pizza
         </div>
@@ -127,17 +99,4 @@
     </div>
 </div>
 
-<!-- jQuery JavaScript -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
-
-<!--Bootsrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!--Own JavaScript -->
-<script type="text/javascript"  src="mainOrder.js"> </script>
-<!--<script	type="text/javascript"-->
-           <!--src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB6i4Tq23mEeBbmlVIVTkofbHS-LgNLAWw">-->
-<!--</script>-->
-
-</body>
-</html>
+<% include common/footer.ejs %>
