@@ -403,6 +403,78 @@ var Pizza_List = require('../Pizza_List');
 var $pizza_list = $("#pizza_list");
 var $menu = $(".all-pizza-types");
 
+var numbers = ['1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '0']
+
+$("#inputName").focus(function(){
+    $("#inputName").keyup(function(){
+        var name = $("#inputName").val();
+        if (!validName(name)){
+            $(".name-help-block").css('display' , 'block');
+            $(".name-lab").css('color' , 'darkred');
+        }else{
+            $(".name-help-block").css('display' , 'none');
+            $(".name-lab").css('color' , 'green');
+        }
+    });
+});
+
+$("#inputPhone").focus(function(){
+    $("#inputPhone").keyup(function(){
+        var phone = $("#inputPhone").val();
+        if (!validPhone(phone)){
+            $(".phone-help-block").css('display' , 'block');
+            $(".phone-lab").css('color' , 'darkred');
+        }else{
+            $(".phone-help-block").css('display' , 'none');
+            $(".phone-lab").css('color' , 'green');
+        }
+    });
+});
+
+$("#inputAdress").focus(function(){
+    $("#inputAdress").keyup(function(){
+        var adress = $("#inputAdress").val();
+        if (!validAdress(adress)){
+            $(".adress-lab").css('color' , 'darkred');
+        }else{
+            $(".adress-lab").css('color' , 'green');
+        }
+    });
+});
+
+function validPhone(phone){
+    if(phone.length < 10){
+        return false
+    }
+    if (phone.charAt(0) != "0" && phone.charAt(0) != "+"){
+        return false
+    }
+    for(var i = 1;i<phone.length-1;i++){
+        if (!(phone.charAt(i) in numbers)){
+            return false
+        }
+    }
+    return true
+}
+
+function validName(name){
+    if (name.charAt(name.length-1) in numbers){
+        return false
+    }
+    if (name.charAt(name.length-1) == " "){
+        return false
+    }
+    return true
+}
+
+function validAdress(adress){
+    if(adress.length == 0){
+        return false
+    }
+    return true
+}
+
+
 $menu.find("#all").click(function(){
     showPizzaList(Pizza_List)
     $(".pizza-filter-count").text(8);
