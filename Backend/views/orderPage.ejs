@@ -54,6 +54,7 @@
                         </button>
                     </div>
                 </div>
+                <div id="map"></div>
             </div>
         </div>
     </div>
@@ -94,9 +95,32 @@
     <div class="bottom-part">
         <div class="sum">Сума замовлення: 0 грн</div>
         <div class ="do-order-btn">
-            <span href = "" class="btn btn-warning edit-order">Редагувати замовлення</span>
+            <span href = "index.html" class="btn btn-warning edit-order">Редагувати замовлення</span>
         </div>
     </div>
 </div>
+
+<script>
+    function initMap() {
+        var myLatLng = {lat: 50.464541, lng: 30.519255};
+
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 16
+        });
+
+        // Create a marker and set its position.
+        var marker = new google.maps.Marker({
+            map: map,
+            position: myLatLng,
+            icon:	"assets/images/map-icon.png"
+        });
+
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt_EmUTFybtqES2yxXsIuh2MHvruNdqak&callback=initMap"
+        async defer></script>
 
 <% include common/footer.ejs %>
